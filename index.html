@@ -1,92 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Redirecionar — VisitBraga</title>
+  <meta charset="UTF-8">
+  <title>Redirecionar</title>
+  <!-- Fallback automático ao fim de 2 segundos -->
+  <meta http-equiv="refresh" content="2; url=https://visitbraga.travel/">
+  <script>
+    // Redireciona de imediato para o principal
+    window.onload = function() {
+      window.location.href = "https://visitbraga.travel/highlights/guias-rapidos/";
+    };
+  </script>
   <style>
-    html,body {
-      height:100%;
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:#ffffff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
     }
-    .wrap {
-      text-align:center;
-    }
-    .logo {
-      max-width:220px;
-      width:40vw;
-      height:auto;
-      display:block;
-      margin:0 auto 12px auto;
-      opacity:0;
-      animation:fadeIn .6s forwards;
-    }
-    @keyframes fadeIn {
-      to { opacity:1; transform:none; }
-    }
-    .sr-only {
-      position:absolute;
-      left:-9999px;
-      top:auto;
-      width:1px;
-      height:1px;
-      overflow:hidden;
+    img {
+      max-width: 200px;
+      height: auto;
     }
   </style>
-
-  <script>
-    // Configurações
-    const PRIMARY = "https://visitbraga.pt";
-    const FALLBACK = "https://visitbraga.travel/";
-    const TIMEOUT_MS = 2000; // tempo máximo de espera pelo "ping"
-
-    function tryPrimaryThenFallback() {
-      let finished = false;
-
-      // Timeout que assume falha e envia para o fallback
-      const timer = setTimeout(() => {
-        if (!finished) {
-          finished = true;
-          window.location.replace(FALLBACK);
-        }
-      }, TIMEOUT_MS);
-
-      // Ping através do carregamento de um recurso simples, favicon
-      const img = new Image();
-      img.onload = function() {
-        if (!finished) {
-          finished = true;
-          clearTimeout(timer);
-          // Redireciona para o principal
-          window.location.replace(PRIMARY);
-        }
-      };
-      img.onerror = function() {
-        if (!finished) {
-          finished = true;
-          clearTimeout(timer);
-          window.location.replace(FALLBACK);
-        }
-      };
-
-      // Favicon é um recurso pequeno e normalmente existe no domínio
-      img.src = "https://visitbraga.travel/favicon.ico?cb=" + Date.now();
-    }
-
-    window.addEventListener("DOMContentLoaded", tryPrimaryThenFallback);
-  </script>
 </head>
 <body>
-  <div class="wrap" aria-live="polite">
-    <img class="logo"
-         src="https://visitbraga.travel/wp-content/uploads/2020/01/visit-braga-logo.png"
-         alt="Visit Braga, redirecionamento em curso">
-    <p class="sr-only">A tentar abrir o destino principal, se não for possível serás redirecionado automaticamente.</p>
-  </div>
+  <!-- Substitui o src pelo logo que quiseres -->
+  <img src="https://visitbraga.travel/wp-content/uploads/2020/01/visit-braga-logo.png" alt="Logo Braga">
 </body>
 </html>
