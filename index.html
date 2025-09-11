@@ -3,27 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecionar</title>
+  <meta http-equiv="refresh" content="5; url=https://example.com/alternativa">
   <script>
     // URL principal
     const primaryURL = "https://visitbraga.travel/highlights/guias-rapidos/";
-    // URL de fallback
-    const fallbackURL = "https://example.com/alternativa";
 
-    // Tenta abrir o URL principal
-    fetch(primaryURL, { method: "HEAD" })
-      .then(response => {
-        if (response.ok) {
-          window.location.href = primaryURL;
-        } else {
-          window.location.href = fallbackURL;
-        }
-      })
-      .catch(() => {
-        window.location.href = fallbackURL;
-      });
+    // Tenta abrir o URL principal imediatamente
+    window.location.href = primaryURL;
   </script>
 </head>
 <body>
-  <p>A redirecionar...</p>
+  <p>A redirecionar... Se não funcionar, <a href="https://example.com/alternativa">clique aqui</a>.</p>
 </body>
 </html>
