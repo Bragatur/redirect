@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecionar</title>
-  <meta http-equiv="refresh" content="5; url=https://visitbraga.travel/highlights/guias-rapidos/">
+  <!-- Fallback automático ao fim de 2 segundos -->
+  <meta http-equiv="refresh" content="2; url=https://visitbraga.travel/">
   <script>
-    // URL principal
-    const primaryURL = "https://visitbraga.travel/highlights/guias-rapidos/";
-
-    // Tenta abrir o URL principal imediatamente
-    window.location.href = primaryURL;
+    // Redireciona de imediato para o principal
+    window.onload = function() {
+      window.location.href = "https://visitbraga.travel/highlights/guias-rapidos/";
+    };
   </script>
 </head>
 <body>
-  <p>A redirecionar... Se não funcionar, <a href="https://example.com/alternativa">clique aqui</a>.</p>
+  <p>A redirecionar para o destino principal...</p>
+  <p>Se não funcionar, será levado automaticamente para a alternativa em 2 segundos.</p>
+  <p>Também pode clicar aqui: 
+    <a href="https://visitbraga.travel/">Ir para alternativa</a>
+  </p>
 </body>
 </html>
