@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecionar</title>
+  <script>
+    // URL principal
+    const primaryURL = "https://example.com/principal";
+    // URL de fallback
+    const fallbackURL = "https://example.com/alternativa";
+
+    // Tenta abrir o URL principal
+    fetch(primaryURL, { method: "HEAD" })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = primaryURL;
+        } else {
+          window.location.href = fallbackURL;
+        }
+      })
+      .catch(() => {
+        window.location.href = fallbackURL;
+      });
+  </script>
+</head>
+<body>
+  <p>A redirecionar...</p>
+</body>
+</html>
